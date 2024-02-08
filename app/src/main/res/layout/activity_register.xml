@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEDE7"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#868B8E"
+        android:letterSpacing="0.15"
+        android:paddingStart="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="@string/moviefy"
+        android:textColor="#EEEDE7"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:paddingTop="50dp"
+        android:paddingBottom="30dp"
+        android:text="@string/register"
+        android:textColor="#868B8E"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtRegName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+
+        android:hint="@string/name"
+        android:inputType="text|textPersonName"
+        android:maxLines="1"
+
+        android:textColorHint="#B9B7BD" />
+
+    <EditText
+        android:id="@+id/edtRegEmail"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+
+        android:maxLines="1"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="15dp"
+
+        android:ems="10"
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"
+
+        android:textColorHint="#B9B7BD" />
+
+    <Button
+        android:id="@+id/btnDateOfBirth"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="?attr/selectableItemBackground"
+        android:text="@string/click_to_select_your_date_of_birth"
+        android:textColor="#B9B7BD"
+        android:textColorHighlight="#B9B7BD"
+        android:textColorHint="#B9B7BD"
+        android:textColorLink="#B9B7BD"
+        android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/edtPhone"
+
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+
+        android:maxLines="1"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="15dp"
+
+        android:ems="10"
+
+        android:hint="@string/phone_number"
+        android:textColorHint="#B9B7BD"
+
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/edtRegPassword"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+
+        android:maxLines="1"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="15dp"
+
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+
+        android:textColorHint="#B9B7BD" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="40dp"
+
+        android:orientation="horizontal"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <TextView
+            android:id="@+id/txtGender"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:foregroundGravity="center_vertical|center"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:paddingStart="5dp"
+            android:text="Gender : "
+            android:textColor="#868B8E"
+            android:textColorHint="#868B8E"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupGender"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+
+                android:layout_width="135dp"
+
+
+                android:layout_height="wrap_content"
+
+                android:buttonTint="@color/radio_button_color_selector"
+                android:checked="true"
+                android:text="@string/male"
+                android:textColor="#868B8E"
+
+                android:textColorHighlight="#B9B7BD"
+                android:textColorLink="#B9B7BD"
+                android:textCursorDrawable="@color/radio_button_color_selector"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:useMaterialThemeColors="true" />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="122dp"
+
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/radio_button_color_selector"
+                android:text="@string/female"
+                android:textColor="#868B8E"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:useMaterialThemeColors="true" />
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnRegisterOnClick"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#868B8E"
+        android:text="@string/register"
+        android:textColor="#EEEDE7"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/cancel"
+        android:backgroundTint="#B9B7BD"
+        android:textColor="#FFFFFF"
+
+
+
+
+        android:textSize="16sp" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

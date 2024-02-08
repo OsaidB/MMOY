@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Color when RadioButton is checked -->
+    <item android:state_checked="true" android:color="#B9B7BD" />
+    <!-- Default color when RadioButton is not checked -->
+    <item android:color="#868B8E" />
+
+</selector>

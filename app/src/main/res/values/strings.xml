@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">MMOY</string>
+
+    <string name="remember_me">Remember me</string>
+    <string name="password">Password</string>
+    <string name="e_mail">E-mail</string>
+    <string name="login">Login</string>
+    <string name="btnLogin">Login</string>
+    <string name="moviefy">Moviefy</string>
+    <string name="register">Register</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="cancel">Cancel</string>
+    <string name="title">Title</string>
+    <string name="rating">rating</string>
+    <string name="description">Description</string>
+    <string name="release_date">release_date</string>
+    <string name="name">Name</string>
+    <string name="click_to_select_your_date_of_birth">Click Here To Select Your Date Of Birth</string>
+
 </resources>
