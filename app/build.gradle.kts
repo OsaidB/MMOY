@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "ps.example.mmoy"
-        minSdk = 28
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
