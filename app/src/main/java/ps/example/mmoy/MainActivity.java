@@ -25,11 +25,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import moh.TaskManagerActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnSchedule;
     Button buttonFeature2;
-
+    Button button_Tasks;
     private RequestQueue requestQueue;
 
     private ArrayList<Course> coursesList;
@@ -95,6 +97,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        button_Tasks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TaskManagerActivity.class);
+                intent.putExtra("list", coursesList);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -110,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         btnSchedule = findViewById(R.id.btnSchedule);   //1
 //        edtTxt_courseTitle = findViewById(R.id.edtTxt_courseTitle); //2
         buttonFeature2 = findViewById(R.id.button_feature_2);
+        button_Tasks = findViewById(R.id.button_Tasks);
 
     }
 

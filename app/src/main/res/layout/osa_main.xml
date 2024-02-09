@@ -23,6 +23,12 @@
         android:layout_height="wrap_content"
         android:text="Feature 2" />
 
+    <Button
+        android:id="@+id/button_Tasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tasks Manager" />
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
 
