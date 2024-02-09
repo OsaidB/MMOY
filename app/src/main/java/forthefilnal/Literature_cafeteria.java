@@ -17,7 +17,7 @@ public class Literature_cafeteria extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.literature_cafeteria);
+        setContentView(R.layout.yaz_literature_cafeteria);
         mape5 = findViewById(R.id.mmaap);
         mape5.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -42,7 +42,7 @@ public class topshawerma extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.topshawerma);
+        setContentView(R.layout.yaz_topshawerma);
         requestQueue = Volley.newRequestQueue(topshawerma.this);
 
         mape8 = findViewById(R.id.ma9);

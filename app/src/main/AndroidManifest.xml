@@ -54,9 +54,56 @@
         <activity
             android:name="finalproject.viewBooks"
             android:exported="false" />
-
         <activity
             android:name="finalproject.searchOrAdd"
+            android:exported="false" />
+
+        <!--&#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+        <activity
+            android:name="forthefilnal.coktallRanush"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.insert"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.MainActivity14"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.pastries"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.Tost"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.notella"
+            android:exported="false" />
+
+        <activity
+            android:name="forthefilnal.topshawerma"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.Mahta"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.Maramia"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.Literature_cafeteria"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.science_cafeteria"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.vanaila"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.Pharmacy_Cafeteria"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.Faculty_of_Economics_and_Commerce"
+            android:exported="false" />
+        <activity
+            android:name="forthefilnal.list_rest"
             android:exported="false" />
 
         <!--&#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->

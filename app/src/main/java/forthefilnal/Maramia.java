@@ -43,7 +43,7 @@ public class Maramia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.maramia);
+        setContentView(R.layout.yaz_maramia);
         requestQueue = Volley.newRequestQueue(Maramia.this);
         mape6 = findViewById(R.id.ma7);
         tee7 = findViewById(R.id.tee7);

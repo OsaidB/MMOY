@@ -50,7 +50,7 @@ public class vanaila extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.vanaila);
+        setContentView(R.layout.yaz_vanaila);
         requestQueue = Volley.newRequestQueue(vanaila.this);
 
         map3 = findViewById(R.id.ma);

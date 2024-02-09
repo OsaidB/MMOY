@@ -17,7 +17,7 @@ public class Tost extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tost);
+        setContentView(R.layout.yaz_tost);
         mape11 = findViewById(R.id.ma12);
         mape11.setOnClickListener(new View.OnClickListener() {
             @Override

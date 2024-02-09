@@ -17,7 +17,7 @@ public class Mahta extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mahta);
+        setContentView(R.layout.yaz_mahta);
         mape7 = findViewById(R.id.ma8);
         mape7.setOnClickListener(new View.OnClickListener() {
             @Override

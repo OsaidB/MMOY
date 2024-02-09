@@ -42,7 +42,7 @@ public class notella extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notella);
+        setContentView(R.layout.yaz_notella);
         mape10 = findViewById(R.id.ma11);
         requestQueue = Volley.newRequestQueue(notella.this);
 

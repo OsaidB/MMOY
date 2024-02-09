@@ -20,4 +20,19 @@
     <string name="name">Name</string>
     <string name="click_to_select_your_date_of_birth">Click Here To Select Your Date Of Birth</string>
 
+    <string-array name="restorans">
+        <item>Faculty of Economics and Commerce</item>
+        <item>Pharmacy Cafeteria</item>
+        <item>vanaila</item>
+        <item>Science Cafeteria</item>
+        <item>Literature cafeteria</item>
+        <item>Maramia</item>
+        <item>Mahta</item>
+        <item>topshawerma</item>
+        <item>coktallRanush</item>
+        <item>notella</item>
+        <item>Tost</item>
+        <item>pastries</item>
+
+    </string-array>
 </resources>

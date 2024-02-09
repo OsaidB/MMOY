@@ -41,7 +41,7 @@ public class pastries extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pastries);
+        setContentView(R.layout.yaz_pastries);
         chezzeftair13 = findViewById(R.id.chezzeftair13);
         zatar13 = findViewById(R.id.zatar13);
         mosahab13 = findViewById(R.id.mosahab13);

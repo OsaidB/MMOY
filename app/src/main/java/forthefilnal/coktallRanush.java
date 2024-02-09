@@ -43,7 +43,7 @@ public class coktallRanush extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.coktallranush);
+        setContentView(R.layout.yaz_coktallranush);
         mape9 = findViewById(R.id.ma10);
         requestQueue = Volley.newRequestQueue(coktallRanush.this);
 

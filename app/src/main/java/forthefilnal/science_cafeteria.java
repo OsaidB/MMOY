@@ -17,7 +17,7 @@ public class science_cafeteria extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.science_cafeteria);
+        setContentView(R.layout.yaz_science_cafeteria);
         map4 = findViewById(R.id.maa);
         map4.setOnClickListener(new View.OnClickListener() {
             @Override

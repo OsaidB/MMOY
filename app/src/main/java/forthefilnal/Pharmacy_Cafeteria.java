@@ -16,7 +16,7 @@ public class Pharmacy_Cafeteria extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pharmacy_cafeteria);
+        setContentView(R.layout.yaz_pharmacy_cafeteria);
         map2 = findViewById(R.id.map);
 
         map2.setOnClickListener(view -> {

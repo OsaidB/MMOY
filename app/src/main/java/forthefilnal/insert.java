@@ -31,7 +31,7 @@ public class insert extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insert);
+        setContentView(R.layout.yaz_insert);
         requestQueue = Volley.newRequestQueue(insert.this);
         e1 = findViewById(R.id.e1);
         e2 = findViewById(R.id.e2);

@@ -17,7 +17,7 @@ public class MainActivity14 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main14);
+        setContentView(R.layout.yaz_main14);
         mape13 = findViewById(R.id.ma14);
         mape13.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -51,7 +51,7 @@ public class Faculty_of_Economics_and_Commerce extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faculty_of_economics_and_commerce);
+        setContentView(R.layout.yaz_faculty_of_economics_and_commerce);
         requestQueue = Volley.newRequestQueue(Faculty_of_Economics_and_Commerce.this);
         map1 = findViewById(R.id.m);
         mosahab = findViewById(R.id.mosahab);

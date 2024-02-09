@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="500dp"
     android:orientation="vertical"
-    tools:context=".list_rest">
+    tools:context="forthefilnal.list_rest">
 
     <ListView
         android:id="@+id/list"
