@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEDE7"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#868B8E"
+        android:letterSpacing="0.15"
+        android:paddingStart="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="@string/moviefy"
+        android:textColor="#EEEDE7"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:paddingTop="100dp"
+        android:paddingBottom="30dp"
+        android:text="@string/login"
+        android:textColor="#868B8E"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtLogEmail"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+
+        android:maxLines="1"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="15dp"
+
+        android:ems="10"
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"
+
+        android:textColorHint="#B9B7BD" />
+
+    <EditText
+        android:id="@+id/edtLogPassword"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+
+        android:maxLines="1"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="40dp"
+
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+
+        android:textColorHint="#B9B7BD" />
+
+
+    <CheckBox
+        android:id="@+id/rmmbrme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginBottom="5dp"
+        android:buttonTint="#868B8E"
+
+        android:lineSpacingExtra="10sp"
+
+        android:text="@string/remember_me"
+        android:textColor="#868B8E"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword"
+        app:layout_constraintVertical_bias="0.039"
+        app:useMaterialThemeColors="false" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnLoginOnClick"
+
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#868B8E"
+        android:text="@string/btnLogin"
+        android:textColor="#EEEDE7"
+        android:textSize="16sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnToRegisterAct"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="20dp"
+            android:backgroundTint="#B9B7BD"
+            android:text="@string/register"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.852" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
