@@ -24,8 +24,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ps.example.mmoy.R;
+
 public class coktallRanush extends AppCompatActivity {
-Button mape9;
+    Button mape9;
     TextView milkshake10;
     TextView melkshakorio10;
     TextView frotgusess10;
@@ -37,23 +39,24 @@ Button mape9;
     TextView appleguse10;
     TextView caretgusee10;
     private RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coktallranush);
-        mape9=findViewById(R.id.ma10);
+        mape9 = findViewById(R.id.ma10);
         requestQueue = Volley.newRequestQueue(coktallRanush.this);
 
-        milkshake10=findViewById(R.id.milkshake10);
-        melkshakorio10=findViewById(R.id.melkshakorio10);
-        frotgusess10=findViewById(R.id.frotgusess10);
-        melkshacklotes10=findViewById(R.id.melkshacklotes10);
-        pnanacoctal10=findViewById(R.id.pnanacoctal10);
-        orengguse10=findViewById(R.id.orengguse10);
-        avocado10=findViewById(R.id.avocado10);
-        lemonade10=findViewById(R.id.lemonade10);
-        appleguse10=findViewById(R.id.appleguse10);
-        caretgusee10=findViewById(R.id.caretgusee10);
+        milkshake10 = findViewById(R.id.milkshake10);
+        melkshakorio10 = findViewById(R.id.melkshakorio10);
+        frotgusess10 = findViewById(R.id.frotgusess10);
+        melkshacklotes10 = findViewById(R.id.melkshacklotes10);
+        pnanacoctal10 = findViewById(R.id.pnanacoctal10);
+        orengguse10 = findViewById(R.id.orengguse10);
+        avocado10 = findViewById(R.id.avocado10);
+        lemonade10 = findViewById(R.id.lemonade10);
+        appleguse10 = findViewById(R.id.appleguse10);
+        caretgusee10 = findViewById(R.id.caretgusee10);
         mape9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,8 +76,8 @@ Button mape9;
                     try {
                         JSONObject obj = response.getJSONObject(i);
                         todos.add(obj.getString("price"));
-                        Log.d("yazahsjdudhd",obj.toString());
-                    }catch(JSONException exception){
+                        Log.d("yazahsjdudhd", obj.toString());
+                    } catch (JSONException exception) {
                         Log.d("volley_error", exception.toString());
                     }
                 }
@@ -142,16 +145,17 @@ Button mape9;
 //
 //        requestQueue.add(request);
     }
-    private void getDirctions(){
-        try{
-            Uri uri= Uri.parse("https://www.google.com/maps/dir/");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+
+    private void getDirctions() {
+        try {
+            Uri uri = Uri.parse("https://www.google.com/maps/dir/");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setPackage("com.google.android.apps.maps");
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
-        }catch (ActivityNotFoundException exception){
-            Uri uri= Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+        } catch (ActivityNotFoundException exception) {
+            Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
         }

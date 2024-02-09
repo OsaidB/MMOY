@@ -24,6 +24,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ps.example.mmoy.R;
+
 public class pastries extends AppCompatActivity {
     Button mape12;
     TextView chezzeftair13;
@@ -35,19 +37,20 @@ public class pastries extends AppCompatActivity {
     TextView spanikh13;
     TextView potato13;
     private RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pastries);
-        chezzeftair13=findViewById(R.id.chezzeftair13);
-        zatar13=findViewById(R.id.zatar13);
-        mosahab13=findViewById(R.id.mosahab13);
-        pizza13=findViewById(R.id.pizza13);
-        hotdagftair13=findViewById(R.id.hotdagftair13);
-        sfihaturkia13=findViewById(R.id.sfihaturkia13);
-        spanikh13=findViewById(R.id.spanikh13);
-        potato13=findViewById(R.id.potato13);
-        mape12=findViewById(R.id.ma13);
+        chezzeftair13 = findViewById(R.id.chezzeftair13);
+        zatar13 = findViewById(R.id.zatar13);
+        mosahab13 = findViewById(R.id.mosahab13);
+        pizza13 = findViewById(R.id.pizza13);
+        hotdagftair13 = findViewById(R.id.hotdagftair13);
+        sfihaturkia13 = findViewById(R.id.sfihaturkia13);
+        spanikh13 = findViewById(R.id.spanikh13);
+        potato13 = findViewById(R.id.potato13);
+        mape12 = findViewById(R.id.ma13);
         requestQueue = Volley.newRequestQueue(pastries.this);
         mape12.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,13 +66,13 @@ public class pastries extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 ArrayList<String> todos = new ArrayList<>();
-                for (int i = 0; i <12; i++) {
+                for (int i = 0; i < 12; i++) {
 
                     try {
                         JSONObject obj = response.getJSONObject(i);
                         todos.add(obj.getString("price"));
-                        Log.d("yazahsjdudhd",obj.toString());
-                    }catch(JSONException exception){
+                        Log.d("yazahsjdudhd", obj.toString());
+                    } catch (JSONException exception) {
                         Log.d("volley_error", exception.toString());
                     }
                 }
@@ -134,19 +137,16 @@ public class pastries extends AppCompatActivity {
 //    }
 
 
-
-
-
-    private void getDirctions(){
-        try{
-            Uri uri= Uri.parse("https://www.google.com/maps/dir/");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+    private void getDirctions() {
+        try {
+            Uri uri = Uri.parse("https://www.google.com/maps/dir/");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setPackage("com.google.android.apps.maps");
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
-        }catch (ActivityNotFoundException exception){
-            Uri uri= Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+        } catch (ActivityNotFoundException exception) {
+            Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
         }

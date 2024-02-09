@@ -26,6 +26,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ps.example.mmoy.R;
+
 public class Reserved extends AppCompatActivity {
     EditText txtSearch;
     Button btnSearch;
@@ -34,11 +36,12 @@ public class Reserved extends AppCompatActivity {
     public static ArrayList<Book> bookList = Book.books;
     private RequestQueue queue;
     Button btnAddBook;
+
     public void btnSearch_Click(View view) {
         EditText edtSearch = findViewById(R.id.edtSearch);
         String name = edtSearch.getText().toString();
 
-        String url = "http://10.0.2.2:5000/getbook/"+name;
+        String url = "http://10.0.2.2:5000/getbook/" + name;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONArray>() {
             @Override
@@ -47,8 +50,8 @@ public class Reserved extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject obj = response.getJSONObject(i);
-                        bookList.add(new Book(obj.getString("title"),obj.getString("category"),obj.getString("desc"), Double.parseDouble(obj.getString("price")) , R.drawable.diavolo));
-                    }catch(JSONException exception){
+                        bookList.add(new Book(obj.getString("title"), obj.getString("category"), obj.getString("desc"), Double.parseDouble(obj.getString("price")), R.drawable.diavolo));
+                    } catch (JSONException exception) {
                         Log.d("Error", exception.toString());
                     }
                 }
@@ -93,7 +96,7 @@ public class Reserved extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reserved);
+        setContentView(R.layout.mah_reserved);
 
         btnSearch = findViewById(R.id.btnSearch);
         btnAddBook = findViewById(R.id.btnAddBook);
@@ -117,7 +120,7 @@ public class Reserved extends AppCompatActivity {
         RecyclerView recycler = findViewById(R.id.pizza_recycler);
 
 
-        String url = "http://10.0.2.2:5000/booksB/"+231312;
+        String url = "http://10.0.2.2:5000/booksB/" + 231312;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONArray>() {
             @Override
@@ -126,8 +129,8 @@ public class Reserved extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject obj = response.getJSONObject(i);
-                        bookList.add(new Book(obj.getString("title"),obj.getString("category"),obj.getString("desc"), Double.parseDouble(obj.getString("price")) , R.drawable.diavolo));
-                    }catch(JSONException exception){
+                        bookList.add(new Book(obj.getString("title"), obj.getString("category"), obj.getString("desc"), Double.parseDouble(obj.getString("price")), R.drawable.diavolo));
+                    } catch (JSONException exception) {
                         Log.d("Error", exception.toString());
                     }
                 }
@@ -173,11 +176,13 @@ public class Reserved extends AppCompatActivity {
         recycler.setAdapter(adapter);
     }
 
-    private void onClickedAdd(View view){
+    private void onClickedAdd(View view) {
         Intent intent;
-        intent = new Intent(this,MainActivity.class);
+        intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    };
+    }
+
+    ;
 
 
 }

@@ -24,8 +24,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ps.example.mmoy.R;
+
 public class vanaila extends AppCompatActivity {
-Button map3;
+    Button map3;
     private RequestQueue requestQueue;
     TextView cookies4;
     TextView redvillvt4;
@@ -43,30 +45,31 @@ Button map3;
     TextView shaylata4;
     TextView milkshake4;
     TextView hotfilft4;
-   // TextView icecoffee2;
+
+    // TextView icecoffee2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vanaila);
         requestQueue = Volley.newRequestQueue(vanaila.this);
 
-        map3=findViewById(R.id.ma);
-        cookies4=findViewById(R.id.cookies4);
-        redvillvt4=findViewById(R.id.redvillvt4);
-        cupcack4=findViewById(R.id.cupcack4);
-        croasonchoclet4=findViewById(R.id.croasonchoclet4);
-        emptycroson4=findViewById(R.id.emptycroson4);
-        bauntycack4=findViewById(R.id.bauntycack4);
-        chezecack4=findViewById(R.id.chezecack4);
-        snecarzcack4=findViewById(R.id.snecarzcack4);
-        amrcano4=findViewById(R.id.amrcano4);
-        espreso4=findViewById(R.id.espreso4);
-        icecofee4=findViewById(R.id.icecofee4);
-        capacheno4=findViewById(R.id.capacheno4);
-        hotnutala4=findViewById(R.id.hotnutala4);
-        shaylata4=findViewById(R.id.shaylata4);
-        milkshake4=findViewById(R.id.milkshake4);
-        hotfilft4=findViewById(R.id.hotfilft4);
+        map3 = findViewById(R.id.ma);
+        cookies4 = findViewById(R.id.cookies4);
+        redvillvt4 = findViewById(R.id.redvillvt4);
+        cupcack4 = findViewById(R.id.cupcack4);
+        croasonchoclet4 = findViewById(R.id.croasonchoclet4);
+        emptycroson4 = findViewById(R.id.emptycroson4);
+        bauntycack4 = findViewById(R.id.bauntycack4);
+        chezecack4 = findViewById(R.id.chezecack4);
+        snecarzcack4 = findViewById(R.id.snecarzcack4);
+        amrcano4 = findViewById(R.id.amrcano4);
+        espreso4 = findViewById(R.id.espreso4);
+        icecofee4 = findViewById(R.id.icecofee4);
+        capacheno4 = findViewById(R.id.capacheno4);
+        hotnutala4 = findViewById(R.id.hotnutala4);
+        shaylata4 = findViewById(R.id.shaylata4);
+        milkshake4 = findViewById(R.id.milkshake4);
+        hotfilft4 = findViewById(R.id.hotfilft4);
         map3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,8 +89,8 @@ Button map3;
                     try {
                         JSONObject obj = response.getJSONObject(i);
                         todos.add(obj.getString("price"));
-                        Log.d("yazahsjdudhd",obj.toString());
-                    }catch(JSONException exception){
+                        Log.d("yazahsjdudhd", obj.toString());
+                    } catch (JSONException exception) {
                         Log.d("volley_error", exception.toString());
                     }
                 }
@@ -119,6 +122,7 @@ Button map3;
 
         requestQueue.add(request);
     }
+
     public void refrish(View view) {
 //        String url = "http://192.168.7.208:5000/rest/vanaila";
 //        System.out.println("testererr");
@@ -168,30 +172,16 @@ Button map3;
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    private void getDirctions(){
-        try{
-            Uri uri= Uri.parse("https://www.google.com/maps/dir/");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+    private void getDirctions() {
+        try {
+            Uri uri = Uri.parse("https://www.google.com/maps/dir/");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setPackage("com.google.android.apps.maps");
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
-        }catch (ActivityNotFoundException exception){
-            Uri uri= Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+        } catch (ActivityNotFoundException exception) {
+            Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
         }

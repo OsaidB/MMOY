@@ -8,13 +8,16 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ps.example.mmoy.R;
+
 public class choose extends AppCompatActivity {
-    Button btnOff,btnRese;
+    Button btnOff, btnRese;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose);
+        setContentView(R.layout.mah_choose);
         btnOff = findViewById(R.id.btnOff);
         btnRese = findViewById(R.id.btnRese);
         btnOff.setOnClickListener(new View.OnClickListener() {
@@ -32,14 +35,19 @@ public class choose extends AppCompatActivity {
         });
     }
 
-    private void onClickedOff(View view){
+    private void onClickedOff(View view) {
         Intent intent;
-        intent = new Intent(this,viewBooks.class);
+        intent = new Intent(this, viewBooks.class);
         startActivity(intent);
-    };
-    private void onClickedRese(View view){
+    }
+
+    ;
+
+    private void onClickedRese(View view) {
         Intent intent;
-        intent = new Intent(this,Reserved.class);
+        intent = new Intent(this, Reserved.class);
         startActivity(intent);
-    };
+    }
+
+    ;
 }

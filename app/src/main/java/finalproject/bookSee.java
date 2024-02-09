@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ps.example.mmoy.R;
+
 public class bookSee extends AppCompatActivity {
     public static String title;
     public static String category;
@@ -14,13 +16,14 @@ public class bookSee extends AppCompatActivity {
     public static double price;
     public static int senderId;
 
-    TextView lblTitle,lblCat,lblDes,lblPrice;
+    TextView lblTitle, lblCat, lblDes, lblPrice;
     Button btnRes;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_see);
+        setContentView(R.layout.mah_book_see);
         lblTitle = findViewById(R.id.lblTitle);
         lblCat = findViewById(R.id.lblCat);
         lblDes = findViewById(R.id.lblDes);
@@ -30,7 +33,7 @@ public class bookSee extends AppCompatActivity {
         lblTitle.setText(title);
         lblCat.setText(category);
         lblDes.setText(description);
-        lblPrice.setText(price+"");
+        lblPrice.setText(price + "");
 
     }
 }

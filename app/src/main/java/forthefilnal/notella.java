@@ -24,8 +24,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ps.example.mmoy.R;
+
 public class notella extends AppCompatActivity {
-Button mape10;
+    Button mape10;
     TextView wafell11;
     TextView pankaknutalla11;
     TextView nutellapizza11;
@@ -36,22 +38,23 @@ Button mape10;
     TextView cheezcackntalla11;
     TextView sofla11;
     private RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notella);
-        mape10=findViewById(R.id.ma11);
+        mape10 = findViewById(R.id.ma11);
         requestQueue = Volley.newRequestQueue(notella.this);
 
-        wafell11=findViewById(R.id.wafell11);
-        pankaknutalla11=findViewById(R.id.pankaknutalla11);
-        nutellapizza11=findViewById(R.id.nutellapizza11);
-        moosnutalla11=findViewById(R.id.moosnutalla11);
-        oriocack11=findViewById(R.id.oriocack11);
-        lotescack11=findViewById(R.id.lotescack11);
-        kreep11=findViewById(R.id.kreep11);
-        cheezcackntalla11=findViewById(R.id.cheezcackntalla11);
-        sofla11=findViewById(R.id.sofla11);
+        wafell11 = findViewById(R.id.wafell11);
+        pankaknutalla11 = findViewById(R.id.pankaknutalla11);
+        nutellapizza11 = findViewById(R.id.nutellapizza11);
+        moosnutalla11 = findViewById(R.id.moosnutalla11);
+        oriocack11 = findViewById(R.id.oriocack11);
+        lotescack11 = findViewById(R.id.lotescack11);
+        kreep11 = findViewById(R.id.kreep11);
+        cheezcackntalla11 = findViewById(R.id.cheezcackntalla11);
+        sofla11 = findViewById(R.id.sofla11);
         mape10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,8 +74,8 @@ Button mape10;
                     try {
                         JSONObject obj = response.getJSONObject(i);
                         todos.add(obj.getString("price"));
-                        Log.d("yazahsjdudhd",obj.toString());
-                    }catch(JSONException exception){
+                        Log.d("yazahsjdudhd", obj.toString());
+                    } catch (JSONException exception) {
                         Log.d("volley_error", exception.toString());
                     }
                 }
@@ -138,16 +141,17 @@ Button mape10;
 //
 //        requestQueue.add(request);
     }
-    private void getDirctions(){
-        try{
-            Uri uri= Uri.parse("https://www.google.com/maps/dir/");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+
+    private void getDirctions() {
+        try {
+            Uri uri = Uri.parse("https://www.google.com/maps/dir/");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setPackage("com.google.android.apps.maps");
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
-        }catch (ActivityNotFoundException exception){
-            Uri uri= Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+        } catch (ActivityNotFoundException exception) {
+            Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
         }

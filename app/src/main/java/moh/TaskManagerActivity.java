@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import ps.example.mmoy.R;
+
 public class TaskManagerActivity extends AppCompatActivity {
 
     private FloatingActionButton fabAddTask;
@@ -15,7 +17,7 @@ public class TaskManagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task_manager);
+        setContentView(R.layout.moh_task_manager);
 
         Intent intent = getIntent();
 
@@ -27,9 +29,6 @@ public class TaskManagerActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
-
-
-
 
 
     }

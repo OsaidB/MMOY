@@ -21,14 +21,17 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ps.example.mmoy.R;
+
 public class addBook extends AppCompatActivity {
-    EditText edtId,edtTitle,edtDes,edtCat,edtPrice;
+    EditText edtId, edtTitle, edtDes, edtCat, edtPrice;
     Button addBtn;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_book);
+        setContentView(R.layout.mah_add_book);
         edtId = findViewById(R.id.edtId);
         edtTitle = findViewById(R.id.edtTitle);
         edtDes = findViewById(R.id.edtDes);
@@ -43,7 +46,7 @@ public class addBook extends AppCompatActivity {
         });
     }
 
-    private void addBook2(String title, String category, String desc , double price,int senderID) {
+    private void addBook2(String title, String category, String desc, double price, int senderID) {
         String url = "http://10.0.2.2:5000/create";
 
         RequestQueue queue = Volley.newRequestQueue(addBook.this);
@@ -109,7 +112,7 @@ public class addBook extends AppCompatActivity {
         addBook2(bookTitle, bookCat, bookDes, bookPrice, bookSenderId);
 
         Intent intent;
-        intent = new Intent(this,viewBooks.class);
+        intent = new Intent(this, viewBooks.class);
         startActivity(intent);
     }
 

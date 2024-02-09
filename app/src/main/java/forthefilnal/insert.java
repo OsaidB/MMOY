@@ -19,21 +19,24 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ps.example.mmoy.R;
+
 public class insert extends AppCompatActivity {
     private RequestQueue requestQueue;
     EditText e1;
     EditText e2;
     EditText e3;
     Button b;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
         requestQueue = Volley.newRequestQueue(insert.this);
-        e1=findViewById(R.id.e1);
-        e2=findViewById(R.id.e2);
-        e3=findViewById(R.id.e3);
-        b=findViewById(R.id.b);
+        e1 = findViewById(R.id.e1);
+        e2 = findViewById(R.id.e2);
+        e3 = findViewById(R.id.e3);
+        b = findViewById(R.id.b);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,14 +45,15 @@ public class insert extends AppCompatActivity {
                 String bookPages = e3.getText().toString();
 
                 try {
-                    addBook(bookTitle, bookCat,bookPages);
+                    addBook(bookTitle, bookCat, bookPages);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
             }
         });
     }
-    private void addBook(String restname, String dish,String price) throws JSONException {
+
+    private void addBook(String restname, String dish, String price) throws JSONException {
 
         String url = "http://192.168.7.208:5000/create";
 

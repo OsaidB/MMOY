@@ -24,8 +24,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ps.example.mmoy.R;
+
 public class topshawerma extends AppCompatActivity {
-Button mape8;
+    Button mape8;
     TextView shwermalafe9;
     TextView shwermaarabi9;
     TextView sahenshawerma9;
@@ -34,7 +36,7 @@ Button mape8;
     TextView cocacola9;
     TextView xl9;
     TextView sivenup9;
-//    TextView greeksaled2;
+    //    TextView greeksaled2;
     private RequestQueue requestQueue;
 
     @Override
@@ -43,15 +45,15 @@ Button mape8;
         setContentView(R.layout.topshawerma);
         requestQueue = Volley.newRequestQueue(topshawerma.this);
 
-        mape8=findViewById(R.id.ma9);
-        shwermalafe9=findViewById(R.id.shwermalafe9);
-        shwermaarabi9=findViewById(R.id.shwermaarabi9);
-        sahenshawerma9=findViewById(R.id.sahenshawerma9);
-        bashka9=findViewById(R.id.bashka9);
-        potato9=findViewById(R.id.potato9);
-        cocacola9=findViewById(R.id.cocacola9);
-        xl9=findViewById(R.id.xl9);
-        sivenup9=findViewById(R.id.sivenup9);
+        mape8 = findViewById(R.id.ma9);
+        shwermalafe9 = findViewById(R.id.shwermalafe9);
+        shwermaarabi9 = findViewById(R.id.shwermaarabi9);
+        sahenshawerma9 = findViewById(R.id.sahenshawerma9);
+        bashka9 = findViewById(R.id.bashka9);
+        potato9 = findViewById(R.id.potato9);
+        cocacola9 = findViewById(R.id.cocacola9);
+        xl9 = findViewById(R.id.xl9);
+        sivenup9 = findViewById(R.id.sivenup9);
         mape8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,8 +73,8 @@ Button mape8;
                     try {
                         JSONObject obj = response.getJSONObject(i);
                         todos.add(obj.getString("price"));
-                        Log.d("yazahsjdudhd",obj.toString());
-                    }catch(JSONException exception){
+                        Log.d("yazahsjdudhd", obj.toString());
+                    } catch (JSONException exception) {
                         Log.d("volley_error", exception.toString());
                     }
                 }
@@ -96,6 +98,7 @@ Button mape8;
 
         requestQueue.add(request);
     }
+
     public void refrish(View view) {
 //        String url = "http://192.168.7.208:5000/rest/topshawerma";
 //        System.out.println("testererr");
@@ -137,16 +140,16 @@ Button mape8;
     }
 
 
-    private void getDirctions(){
-        try{
-            Uri uri= Uri.parse("https://www.google.com/maps/dir/");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+    private void getDirctions() {
+        try {
+            Uri uri = Uri.parse("https://www.google.com/maps/dir/");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setPackage("com.google.android.apps.maps");
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
-        }catch (ActivityNotFoundException exception){
-            Uri uri= Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+        } catch (ActivityNotFoundException exception) {
+            Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
         }

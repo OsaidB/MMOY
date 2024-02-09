@@ -7,13 +7,15 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ps.example.mmoy.R;
+
 public class searchOrAdd extends AppCompatActivity {
-    Button btnBooks,btnSearchB;
+    Button btnBooks, btnSearchB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_or_add);
+        setContentView(R.layout.mah_search_or_add);
         btnSearchB = findViewById(R.id.btnSearchB);
         btnBooks = findViewById(R.id.btnBooks);
         //go to exhange activity
@@ -34,14 +36,19 @@ public class searchOrAdd extends AppCompatActivity {
 
     }
 
-    private void onClickedS(View view){
+    private void onClickedS(View view) {
         Intent intent;
-        intent = new Intent(this,MainActivity.class);
+        intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    };
-    private void onClickedB(View view){
+    }
+
+    ;
+
+    private void onClickedB(View view) {
         Intent intent;
-        intent = new Intent(this,choose.class);
+        intent = new Intent(this, choose.class);
         startActivity(intent);
-    };
+    }
+
+    ;
 }

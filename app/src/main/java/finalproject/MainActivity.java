@@ -24,6 +24,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ps.example.mmoy.R;
+
 public class MainActivity extends AppCompatActivity {
     EditText txtSearch;
     Button btnSearch;
@@ -31,11 +33,12 @@ public class MainActivity extends AppCompatActivity {
     //public static ArrayList<String> books;
     public static ArrayList<Book> bookList = Book.books;
     private RequestQueue queue;
+
     public void btnSearch_Click(View view) {
         EditText edtSearch = findViewById(R.id.edtSearch);
         String name = edtSearch.getText().toString();
 
-        String url = "http://10.0.2.2:5000/getbook/"+name;
+        String url = "http://10.0.2.2:5000/getbook/" + name;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONArray>() {
             @Override
@@ -44,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject obj = response.getJSONObject(i);
-                        bookList.add(new Book(obj.getString("title"),obj.getString("category"),obj.getString("desc"), Double.parseDouble(obj.getString("price")) , R.drawable.diavolo));
-                    }catch(JSONException exception){
+                        bookList.add(new Book(obj.getString("title"), obj.getString("category"), obj.getString("desc"), Double.parseDouble(obj.getString("price")), R.drawable.diavolo));
+                    } catch (JSONException exception) {
                         Log.d("Error", exception.toString());
                     }
                 }
@@ -88,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.mah_main2);
 
         btnSearch = findViewById(R.id.btnSearch);
         //go to exhange activity
@@ -114,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject obj = response.getJSONObject(i);
-                        bookList.add(new Book(obj.getString("title"),obj.getString("category"),obj.getString("desc"), Double.parseDouble(obj.getString("price")) , R.drawable.diavolo));
-                    }catch(JSONException exception){
+                        bookList.add(new Book(obj.getString("title"), obj.getString("category"), obj.getString("desc"), Double.parseDouble(obj.getString("price")), R.drawable.diavolo));
+                    } catch (JSONException exception) {
                         Log.d("Error", exception.toString());
                     }
                 }
@@ -160,8 +163,6 @@ public class MainActivity extends AppCompatActivity {
         CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(allBooks);
         recycler.setAdapter(adapter);
     }
-
-
 
 
 }

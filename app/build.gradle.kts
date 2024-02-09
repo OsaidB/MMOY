@@ -6,9 +6,10 @@ android {
     namespace = "ps.example.mmoy"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "ps.example.mmoy"
-        minSdk = 26
+        minSdk = 33
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"

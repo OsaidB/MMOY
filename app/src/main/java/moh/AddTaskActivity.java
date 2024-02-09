@@ -17,6 +17,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
 
+import ps.example.mmoy.R;
+
 public class AddTaskActivity extends AppCompatActivity {
 
     private EditText edtCourseCode, edtTaskDes, edtDueDate, edtDueTime;
@@ -24,10 +26,11 @@ public class AddTaskActivity extends AppCompatActivity {
     private RadioGroup rgPrioritySelector;
     private FloatingActionButton fabDate, fabTime;
     private Button btnAddTask;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_task);
+        setContentView(R.layout.moh_add_task);
 
         setUpViews();
 
@@ -54,7 +57,9 @@ public class AddTaskActivity extends AppCompatActivity {
 
         fabTime.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { showTimePickerDialog(); }
+            public void onClick(View v) {
+                showTimePickerDialog();
+            }
         });
     }
 
@@ -105,11 +110,11 @@ public class AddTaskActivity extends AppCompatActivity {
     }
 
 
-    public void btnAddTaskOnClick(){
+    public void btnAddTaskOnClick() {
 
     }
 
-    private void addTask(int student_id, int course_id, String task_type, String description){
+    private void addTask(int student_id, int course_id, String task_type, String description) {
 
     }
 }

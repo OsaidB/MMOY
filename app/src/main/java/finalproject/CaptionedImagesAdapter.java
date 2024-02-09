@@ -13,18 +13,21 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import ps.example.mmoy.R;
+
 public class CaptionedImagesAdapter
-        extends RecyclerView.Adapter<CaptionedImagesAdapter.ViewHolder>{
+        extends RecyclerView.Adapter<CaptionedImagesAdapter.ViewHolder> {
 
     private Book[] book;
 
-    public CaptionedImagesAdapter(Book[] book){
+    public CaptionedImagesAdapter(Book[] book) {
         this.book = book;
 
     }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_captioned_image,
+        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.mah_card_captioned_image,
                 parent,
                 false);
 
@@ -37,16 +40,16 @@ public class CaptionedImagesAdapter
         ImageView imageView = (ImageView) cardView.findViewById(R.id.image);
         Drawable dr = ContextCompat.getDrawable(cardView.getContext(), book[position].getImageID());
         imageView.setImageDrawable(dr);
-        TextView txt = (TextView)cardView.findViewById(R.id.txtName);
+        TextView txt = (TextView) cardView.findViewById(R.id.txtName);
         txt.setText(book[position].getTitle());
-        TextView cat = (TextView)cardView.findViewById(R.id.txtCat);
+        TextView cat = (TextView) cardView.findViewById(R.id.txtCat);
         cat.setText(book[position].getCategory());
-        TextView des = (TextView)cardView.findViewById(R.id.txtDes);
+        TextView des = (TextView) cardView.findViewById(R.id.txtDes);
         des.setText(book[position].getDesc());
-        TextView price = (TextView)cardView.findViewById(R.id.txtPrice);
-        price.setText(book[position].getPrice()+"");
+        TextView price = (TextView) cardView.findViewById(R.id.txtPrice);
+        price.setText(book[position].getPrice() + "");
 
-        cardView.setOnClickListener( new View.OnClickListener(){
+        cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 bookSee.title = book[position].getTitle();
@@ -107,9 +110,10 @@ public class CaptionedImagesAdapter
         return book.length;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;
-        public ViewHolder(CardView cardView){
+
+        public ViewHolder(CardView cardView) {
             super(cardView);
             this.cardView = cardView;
         }

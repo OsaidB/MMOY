@@ -24,9 +24,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ps.example.mmoy.R;
+import ps.example.mmoy.R;
+
 public class Faculty_of_Economics_and_Commerce extends AppCompatActivity {
-Button map1;
-   TextView mosahab;
+    Button map1;
+    TextView mosahab;
     TextView hotdogsanduch;
     TextView burgir2;
     TextView chikencheezfaela;
@@ -44,29 +47,30 @@ Button map1;
     TextView xl2;
     TextView icecoffee2;
     private RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_of_economics_and_commerce);
         requestQueue = Volley.newRequestQueue(Faculty_of_Economics_and_Commerce.this);
-        map1=findViewById(R.id.m);
-        mosahab=findViewById(R.id.mosahab);
-        hotdogsanduch=findViewById(R.id.hotdogsanuch);
-        burgir2=findViewById(R.id.burgir2);
-        chikencheezfaela=findViewById(R.id.mosahab);
-        potato2=findViewById(R.id.potato2);
-        shawerma2=findViewById(R.id.shawerma2);
-        labana2=findViewById(R.id.labana2);
-        tonasanduch2=findViewById(R.id.tonasanduch2);
-        greeksaled2=findViewById(R.id.greeksaled2);
-        chezzeftier2=findViewById(R.id.chezzeftier2);
-        zatar2=findViewById(R.id.zatar2);
-        hotdogftair2=findViewById(R.id.hotdogftair2);
-        sivenup2=findViewById(R.id.sivenup2);
-        cocacolatype2=findViewById(R.id.cocacolatype2);
-        guss2=findViewById(R.id.guss2);
-        xl2=findViewById(R.id.xl2);
-        icecoffee2=findViewById(R.id.icecoffee2);
+        map1 = findViewById(R.id.m);
+        mosahab = findViewById(R.id.mosahab);
+        hotdogsanduch = findViewById(R.id.hotdogsanuch);
+        burgir2 = findViewById(R.id.burgir2);
+        chikencheezfaela = findViewById(R.id.mosahab);
+        potato2 = findViewById(R.id.potato2);
+        shawerma2 = findViewById(R.id.shawerma2);
+        labana2 = findViewById(R.id.labana2);
+        tonasanduch2 = findViewById(R.id.tonasanduch2);
+        greeksaled2 = findViewById(R.id.greeksaled2);
+        chezzeftier2 = findViewById(R.id.chezzeftier2);
+        zatar2 = findViewById(R.id.zatar2);
+        hotdogftair2 = findViewById(R.id.hotdogftair2);
+        sivenup2 = findViewById(R.id.sivenup2);
+        cocacolatype2 = findViewById(R.id.cocacolatype2);
+        guss2 = findViewById(R.id.guss2);
+        xl2 = findViewById(R.id.xl2);
+        icecoffee2 = findViewById(R.id.icecoffee2);
 
 
         map1.setOnClickListener(new View.OnClickListener() {
@@ -88,8 +92,8 @@ Button map1;
                     try {
                         JSONObject obj = response.getJSONObject(i);
                         todos.add(obj.getString("title"));
-                        Log.d("yazahsjdudhd",obj.toString());
-                    }catch(JSONException exception){
+                        Log.d("yazahsjdudhd", obj.toString());
+                    } catch (JSONException exception) {
                         Log.d("volley_error", exception.toString());
                     }
                 }
@@ -121,16 +125,17 @@ Button map1;
 
         requestQueue.add(request);
     }
-    private void getDirctions(){
-        try{
-            Uri uri= Uri.parse("https://www.google.com/maps/dir/");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+
+    private void getDirctions() {
+        try {
+            Uri uri = Uri.parse("https://www.google.com/maps/dir/");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setPackage("com.google.android.apps.maps");
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
-        }catch (ActivityNotFoundException exception){
-            Uri uri= Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+        } catch (ActivityNotFoundException exception) {
+            Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
         }
@@ -183,5 +188,5 @@ Button map1;
 //        });
 //
 //        requestQueue.add(request);
-}
+    }
 }

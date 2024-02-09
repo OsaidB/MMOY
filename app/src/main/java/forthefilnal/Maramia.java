@@ -24,8 +24,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ps.example.mmoy.R;
+
 public class Maramia extends AppCompatActivity {
-Button mape6;
+    Button mape6;
 
     private RequestQueue requestQueue;
     TextView tee7;
@@ -36,21 +38,22 @@ Button mape6;
     TextView cocacola7;
     TextView xl7;
     TextView bvaria7;
-//    TextView bvaria7;
+
+    //    TextView bvaria7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.maramia);
         requestQueue = Volley.newRequestQueue(Maramia.this);
-        mape6=findViewById(R.id.ma7);
-        tee7=findViewById(R.id.tee7);
-        amrcano7=findViewById(R.id.amrcano7);
-        capacheno7=findViewById(R.id.capacheno7);
-        zhurat7=findViewById(R.id.zhurat7);
-        icecofee7=findViewById(R.id.icecofee7);
-        cocacola7=findViewById(R.id.cocacola7);
-        xl7=findViewById(R.id.xl7);
-        bvaria7=findViewById(R.id.bvaria7);
+        mape6 = findViewById(R.id.ma7);
+        tee7 = findViewById(R.id.tee7);
+        amrcano7 = findViewById(R.id.amrcano7);
+        capacheno7 = findViewById(R.id.capacheno7);
+        zhurat7 = findViewById(R.id.zhurat7);
+        icecofee7 = findViewById(R.id.icecofee7);
+        cocacola7 = findViewById(R.id.cocacola7);
+        xl7 = findViewById(R.id.xl7);
+        bvaria7 = findViewById(R.id.bvaria7);
 
         mape6.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,8 +74,8 @@ Button mape6;
                     try {
                         JSONObject obj = response.getJSONObject(i);
                         todos.add(obj.getString("price"));
-                        Log.d("yazahsjdudhd",obj.toString());
-                    }catch(JSONException exception){
+                        Log.d("yazahsjdudhd", obj.toString());
+                    } catch (JSONException exception) {
                         Log.d("volley_error", exception.toString());
                     }
                 }
@@ -136,16 +139,17 @@ Button mape6;
 //
 //        requestQueue.add(request);
     }
-    private void getDirctions(){
-        try{
-            Uri uri= Uri.parse("https://www.google.com/maps/dir/");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+
+    private void getDirctions() {
+        try {
+            Uri uri = Uri.parse("https://www.google.com/maps/dir/");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setPackage("com.google.android.apps.maps");
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
-        }catch (ActivityNotFoundException exception){
-            Uri uri= Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
-            Intent in=new Intent(Intent.ACTION_VIEW,uri);
+        } catch (ActivityNotFoundException exception) {
+            Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
+            Intent in = new Intent(Intent.ACTION_VIEW, uri);
             in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(in);
         }
