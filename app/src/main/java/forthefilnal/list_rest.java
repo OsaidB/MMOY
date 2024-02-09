@@ -15,7 +15,7 @@ public class list_rest extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_rest);
+        setContentView(R.layout.yaz_list_rest);
         update=findViewById(R.id.update);
         update.setOnClickListener(new View.OnClickListener() {
             @Override

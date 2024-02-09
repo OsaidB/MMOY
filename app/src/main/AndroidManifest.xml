@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
 
-
     <queries>
         <!-- For Google Maps or any apps that can handle map (geo) intents -->
         <intent>
@@ -13,7 +12,6 @@
             <data android:scheme="geo" />
         </intent>
     </queries>
-
 
 
     <application
@@ -27,6 +25,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MMOY"
         tools:targetApi="31">
+        <!--&#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+        <activity
+            android:name="moh.AddTaskActivity"
+            android:exported="false" />
+        <activity
+            android:name="moh.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="moh.TaskManagerActivity"
+            android:exported="false" />
+        <!--&#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+        <activity
+            android:name="finalproject.Reserved"
+            android:exported="false" />
+        <activity
+            android:name="finalproject.choose"
+            android:exported="false" />
+        <activity
+            android:name="finalproject.bookSee"
+            android:exported="false" />
+        <activity
+            android:name="finalproject.viewBooks"
+            android:exported="false" />
+        <activity
+            android:name="finalproject.addBook"
+            android:exported="false" />
+        <activity
+            android:name="finalproject.searchOrAdd"
+            android:exported="false" />
+        <!--&#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
         <activity
             android:name=".scheduleActivity"
             android:exported="false" />
@@ -39,6 +67,7 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="true">

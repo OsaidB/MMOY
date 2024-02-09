@@ -61,7 +61,7 @@ public class scheduleForm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schedule_form);
+        setContentView(R.layout.osa_schedule_form);
 
         coursesList = new ArrayList<Course>();
 

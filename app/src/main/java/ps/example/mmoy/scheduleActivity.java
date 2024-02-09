@@ -25,7 +25,7 @@ public class scheduleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schedule);
+        setContentView(R.layout.osa_schedule);
 
         coursesList = new ArrayList<Course>();
 
