@@ -25,16 +25,19 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import moh.AddTaskActivity;
+import moh.Task;
 import moh.TaskManagerActivity;
 
 public class MainActivity extends AppCompatActivity {
-
     Button btnSchedule;
     Button buttonFeature2;
     Button button_Tasks;
     private RequestQueue requestQueue;
 
     private ArrayList<Course> coursesList;
+
+    //private ArrayList<Task> tasksList;
     ///////////////////////////////////////////////
     static SharedPreferences prefs;            //To Read
     private SharedPreferences.Editor editor;    //To Write
@@ -44,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.osa_main);
         coursesList = new ArrayList<Course>();
+        //tasksList = new ArrayList<Task>();
+
         setupViews();
 
         setupSharedPrefs();             //siting SharedPrefs up (making the app ready to Read/Write)
@@ -59,9 +64,12 @@ public class MainActivity extends AppCompatActivity {
         int studentId = prefs.getInt("studentId", -1); // -1 is the default value if no id is found
         if (studentId != -1) {
             fetchCoursesForStudent(studentId);
+            //fetchTasksForStudent(studentId);
+
         } else {
             System.out.println("studentId=-1");
         }
+
 
 //        fetchCoursesFromDatabase();
         btnSchedule.setOnClickListener(new View.OnClickListener() {
@@ -102,11 +110,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TaskManagerActivity.class);
                 intent.putExtra("list", coursesList);
+                //intent.putExtra("listTasks", tasksList);
+                intent.putExtra("studentId", studentId);
                 startActivity(intent);
             }
         });
-
-
     }
 
     private void setupSharedPrefs() {   //siting SharedPrefs up (making the app ready to Read/Write)
@@ -225,6 +233,42 @@ public class MainActivity extends AppCompatActivity {
         // Add the request to the RequestQueue.
         requestQueue.add(request);
     }
+
+//    private void fetchTasksForStudent(int studentId) {
+//        String url = "http://10.0.2.2:5000/tasks/" + studentId;
+//
+//        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
+//                response -> {
+//                    for (int i = 0; i < response.length(); i++) {
+//                        try {
+//                            JSONObject taskObject = response.getJSONObject(i);
+//                            int task_id = taskObject.getInt("task_id");
+//                            int course_id = taskObject.getInt("course_id");
+//                            String task_type = taskObject.getString("task_type");
+//                            String description = taskObject.getString("description");
+//                            String priority = taskObject.getString("priority");
+//                            String due_date = taskObject.getString("due_date");
+//                            String due_Time = taskObject.getString("due_Time");
+//
+//                            Task task = new Task(task_id, studentId, course_id, task_type, description, priority, due_date, due_Time);
+//                            tasksList.add(task);
+//
+//                            //System.out.println(tasksList);
+//
+//                        } catch (JSONException e) {
+//                            Log.d("Error", e.toString());
+//                            e.printStackTrace();
+//                        }
+//                    }
+//
+//                },
+//                error -> {
+//                    Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+//                    Log.d("Error_json", error.toString());
+//                });
+//        requestQueue.add(request);
+//    }
+
 
 
 }

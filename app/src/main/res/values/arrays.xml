@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="spinner_prompt">Choose Task Type</string>
     <string-array name="task_types">
-        <item>type1</item>
-        <item>type2</item>
-        <item>type3</item>
+        <item>Choose Task Type</item>
+        <item>Final Exam</item>
+        <item>Final Project</item>
+        <item>Second Exam</item>
+        <item>First Exam</item>
+        <item>Project</item>
+        <item>Homework</item>
+        <item>Assignment</item>
+        <item>Quiz</item>
     </string-array>
 </resources>

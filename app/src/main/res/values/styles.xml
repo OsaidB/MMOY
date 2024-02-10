@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="txt_add_task_style">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="edt_add_task_style">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+</resources>

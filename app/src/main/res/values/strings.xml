@@ -19,6 +19,17 @@
     <string name="release_date">release_date</string>
     <string name="name">Name</string>
     <string name="click_to_select_your_date_of_birth">Click Here To Select Your Date Of Birth</string>
+    <string name="add_your_important_tasks">Add Your Important Tasks</string>
+    <string name="task_description">Task Description</string>
+    <string name="task_priority">Task Priority:</string>
+    <string name="high">High</string>
+    <string name="medium">Medium</string>
+    <string name="low">Low</string>
+    <string name="deadline_information">DeadLine Information:</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="add_task">Add Task</string>
+    <string name="welcome_to_your_study_manager">Welcome to your Study Manager</string>
 
     <string-array name="restorans">
         <item>Faculty of Economics and Commerce</item>
