@@ -8,34 +8,17 @@
     tools:context="moh.AddTaskActivity">
 
     <TextView
-        android:id="@+id/txtAddTaskHeader0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="Welcome back, "
-        android:textColor="#474343"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
-
-    <TextView
         android:id="@+id/txtAddTaskHeader1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="Add Your Important Tasks"
-        android:textColor="#000000"
-        android:textSize="20sp"
+        android:text="@string/add_your_important_tasks"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063" />
+        app:layout_constraintVertical_bias="0.022"
+        style="@style/txt_add_task_style" />
 
     <View
         android:id="@+id/view"
@@ -47,22 +30,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112" />
+        app:layout_constraintVertical_bias="0.074" />
 
 
-    <EditText
-        android:id="@+id/edtCourseCode"
+    <Spinner
+        android:id="@+id/spnCourseCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Course Name"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141" />
+        app:layout_constraintVertical_bias="0.123" />
+
 
     <Spinner
         android:id="@+id/spnTaskType"
@@ -73,85 +54,107 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.123" />
 
     <EditText
         android:id="@+id/edtTaskDes"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Task Description"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="@string/task_description"
         android:inputType="textMultiLine"
-        android:textAlignment="center"
-        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintVertical_bias="0.234"
+        style="@style/edt_add_task_style" />
+
+    <TextView
+        android:id="@+id/txtPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task_priority"
+        style="@style/txt_add_task_style"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.383" />
 
     <RadioGroup
         android:id="@+id/rgPrioritySelector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.521">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fontFamily="serif"
-            android:text="Task Priority:"
-            android:textColor="#000000"
-            android:textSize="20sp" />
+        app:layout_constraintVertical_bias="0.485">
 
         <RadioButton
             android:id="@+id/rbHigh"
             android:layout_width="123dp"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
-            android:text="High"
-            android:textColor="#000000" />
+            android:text="@string/high"
+            android:textColor="#000000"
+            style="@style/txt_add_task_style"
+            android:textSize="20sp"/>
 
         <RadioButton
             android:id="@+id/rbMedium"
             android:layout_width="123dp"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
-            android:text="Medium"
-            android:textColor="#000000" />
+            android:text="@string/medium"
+            style="@style/txt_add_task_style"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/rbLow"
             android:layout_width="123dp"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
-            android:text="Low"
-            android:textColor="#000000" />
+            android:text="@string/low"
+            style="@style/txt_add_task_style"
+            android:textSize="20sp" />
 
     </RadioGroup>
 
-    <EditText
-        android:id="@+id/edtDueDate"
-        android:layout_width="136dp"
-        android:layout_height="55dp"
-        android:hint="due To"
-        android:textAlignment="center"
+    <TextView
+        android:id="@+id/txtDeadLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deadline_information"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.301"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.612"
+        style="@style/txt_add_task_style"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/edtDueDate"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:hint="@string/date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.299"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.723"
+        style="@style/edt_add_task_style"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabDate"
@@ -164,20 +167,20 @@
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.751" />
+        app:layout_constraintVertical_bias="0.722" />
 
     <EditText
         android:id="@+id/edtDueTime"
-        android:layout_width="136dp"
+        android:layout_width="100dp"
         android:layout_height="55dp"
-        android:hint="Until"
-        android:textAlignment="center"
+        android:hint="@string/time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871" />
+        app:layout_constraintVertical_bias="0.724"
+        style="@style/edt_add_task_style"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabTime"
@@ -187,21 +190,25 @@
         app:backgroundTint="@color/design_default_color_secondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.872" />
+        app:layout_constraintVertical_bias="0.724" />
 
     <Button
         android:id="@+id/btnAddTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Task"
+        android:onClick="btnAddTaskOnClick"
+        android:text="@string/add_task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        android:onClick="btnAddTaskOnClick"/>
+        app:layout_constraintVertical_bias="0.957"
+        android:fontFamily="serif"
+        android:backgroundTint="@color/black"
+        android:textSize="20sp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
