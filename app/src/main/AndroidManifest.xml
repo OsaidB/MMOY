@@ -4,15 +4,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <queries>
+
         <!-- For Google Maps or any apps that can handle map (geo) intents -->
         <intent>
             <action android:name="android.intent.action.VIEW" />
+
             <data android:scheme="geo" />
         </intent>
     </queries>
-
 
     <application
         android:allowBackup="true"
@@ -25,17 +25,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MMOY"
         tools:targetApi="31">
-        <!--&#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+        <activity
+            android:name="moh.TasksDetailsActivity"
+            android:exported="false" />
+        <!-- &#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; -->
         <activity
             android:name="moh.AddTaskActivity"
             android:exported="false" />
-        <activity
-            android:name="moh.MainActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name="moh.MainActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name="moh.TaskManagerActivity"
-            android:exported="false" />
-        <!--&#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+            android:windowSoftInputMode="adjustPan"
+            android:exported="false" /> <!-- &#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; -->
         <activity
             android:name="finalproject.MainActivity"
             android:exported="false" />
@@ -56,9 +59,7 @@
             android:exported="false" />
         <activity
             android:name="finalproject.searchOrAdd"
-            android:exported="false" />
-
-        <!--&#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+            android:exported="false" /> <!-- &#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; -->
         <activity
             android:name="forthefilnal.coktallRanush"
             android:exported="false" />
@@ -77,7 +78,6 @@
         <activity
             android:name="forthefilnal.notella"
             android:exported="false" />
-
         <activity
             android:name="forthefilnal.topshawerma"
             android:exported="false" />
@@ -104,9 +104,7 @@
             android:exported="false" />
         <activity
             android:name="forthefilnal.list_rest"
-            android:exported="false" />
-
-        <!--&#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+            android:exported="false" /> <!-- &#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; -->
         <activity
             android:name=".scheduleActivity"
             android:exported="false" />
@@ -119,7 +117,6 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
-
         <activity
             android:name=".LoginActivity"
             android:exported="true">

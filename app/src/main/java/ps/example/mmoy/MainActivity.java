@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Course> coursesList;
 
+
     //private ArrayList<Task> tasksList;
     ///////////////////////////////////////////////
     static SharedPreferences prefs;            //To Read

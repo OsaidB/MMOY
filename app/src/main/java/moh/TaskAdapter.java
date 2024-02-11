@@ -1,5 +1,7 @@
 package moh;
 
+import static moh.TaskManagerActivity.courseIdToCodeMap;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ps.example.mmoy.Course;
 import ps.example.mmoy.R;
@@ -15,6 +18,10 @@ import ps.example.mmoy.R;
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     private ArrayList<Task> tasksList;
+    public void setFilteredList(ArrayList<Task> filteredList){
+        this.tasksList = filteredList;
+        notifyDataSetChanged();
+    }
 
     public TaskAdapter(ArrayList<Task> tasksList) {
         this.tasksList = tasksList;
@@ -43,10 +50,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(TaskAdapter.ViewHolder holder, int position) {
         Task currTask = tasksList.get(position);
-        holder.txtTaskTitle.setText(currTask.getTitle());
-        String due = currTask.getTaskDueDate() + "\n" + currTask.getTaskDueDate();
+        String courseCode = courseIdToCodeMap.get(currTask.getCourseID());
+        String taskTitle = courseCode + "\n" + currTask.getTaskType();
+        holder.txtTaskTitle.setText(taskTitle);
+        String due = "Dead Line \n" + currTask.getTaskDueDate() + "\n" + currTask.getTaskDueTime();
         holder.txtDL.setText(due);//
-        holder.txtPriorityDisplay.setText(currTask.getTaskPriority());
+        String tp = "Priority \n" + currTask.getTaskPriority();
+        holder.txtPriorityDisplay.setText(tp);
 //        cardView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

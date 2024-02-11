@@ -10,7 +10,6 @@ public class Task{
     private String taskDueDate;
     private String taskDueTime;
 
-
     public Task(int taskID, int stdID, int courseID, String taskType, String taskDes,
                 String taskPriority, String taskDueDate, String taskDueTime) {
         this.taskID = taskID;
