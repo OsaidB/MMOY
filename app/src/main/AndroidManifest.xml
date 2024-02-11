@@ -26,19 +26,20 @@
         android:theme="@style/Theme.MMOY"
         tools:targetApi="31">
         <activity
-            android:name="moh.TasksDetailsActivity"
+            android:name="moh.UpdateTaskActivity"
             android:exported="false" />
-        <!-- &#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; -->
+        <activity
+            android:name="moh.TasksDetailsActivity"
+            android:exported="false" /> <!-- &#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; -->
         <activity
             android:name="moh.AddTaskActivity"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name="moh.MainActivity"-->
-<!--            android:exported="false" />-->
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name="moh.MainActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name="moh.TaskManagerActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="false" /> <!-- &#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; -->
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" /> <!-- &#45;&#45;&#45;&#45;&#45;&#45;;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; -->
         <activity
             android:name="finalproject.MainActivity"
             android:exported="false" />
