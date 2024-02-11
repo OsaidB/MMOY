@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="moh.UpdateTaskActivity">
+
+    <TextView
+        android:id="@+id/txtUpdateTaskHeader1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Your Task"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        style="@style/txt_add_task_style" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.074" />
+
+
+    <EditText
+        android:id="@+id/edtTypeTaskUpdate"
+        style="@style/edt_add_task_style"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.102" />
+
+    <EditText
+        android:id="@+id/edtTaskDesUpdate"
+        style="@style/edt_add_task_style"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="@string/task_description"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213" />
+
+    <TextView
+        android:id="@+id/txtPriority"
+        style="@style/txt_add_task_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task_priority"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.352" />
+
+    <RadioGroup
+        android:id="@+id/rgPrioritySelectorUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.434">
+
+        <RadioButton
+            android:id="@+id/rbHigh"
+            style="@style/txt_add_task_style"
+            android:layout_width="123dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="@string/high"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rbMedium"
+            style="@style/txt_add_task_style"
+            android:layout_width="123dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="@string/medium"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rbLow"
+            style="@style/txt_add_task_style"
+            android:layout_width="123dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="@string/low"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/txtDeadLine"
+        style="@style/txt_add_task_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deadline_information"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.541" />
+
+    <EditText
+        android:id="@+id/edtDueDateUpdate"
+        style="@style/edt_add_task_style"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:hint="@string/date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.299"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.643" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabDateUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/calendar"
+        app:backgroundTint="@color/design_default_color_secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641" />
+
+    <EditText
+        android:id="@+id/edtDueTimeUpdate"
+        style="@style/edt_add_task_style"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:hint="@string/time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.299"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabTimeUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/time"
+        app:backgroundTint="@color/design_default_color_secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754" />
+
+    <Button
+        android:id="@+id/btnUpdateTask"
+        android:text="Update Task"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.957"
+        style="@style/view_task_button_styles" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

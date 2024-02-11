@@ -2,6 +2,7 @@ package moh;
 
 import static moh.TaskManagerActivity.courseIdToCodeMap;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,12 +32,21 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         public TextView txtTaskTitle;
         public TextView txtDL;
         public TextView txtPriorityDisplay;
+        public CardView cardView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             txtTaskTitle = itemView.findViewById(R.id.txtTaskTitle);
             txtDL = itemView.findViewById(R.id.txtDL);
             txtPriorityDisplay = itemView.findViewById(R.id.txtPriorityDisplay);
+            cardView = (CardView) itemView;
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
 
         }
     }
@@ -57,12 +67,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         holder.txtDL.setText(due);//
         String tp = "Priority \n" + currTask.getTaskPriority();
         holder.txtPriorityDisplay.setText(tp);
-//        cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        holder.cardView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), TasksDetailsActivity.class);
+            intent.putExtra("courseCode", courseCode);
+            intent.putExtra("taskType", currTask.getTaskType());
+            intent.putExtra("description", currTask.getTaskDes());
+            intent.putExtra("priority", currTask.getTaskPriority());
+            intent.putExtra("dueDate", currTask.getTaskDueDate());
+            intent.putExtra("dueTime", currTask.getTaskDueTime());
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override

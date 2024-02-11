@@ -42,7 +42,7 @@ public class TaskManagerActivity extends AppCompatActivity {
     private ArrayList<Task> tasksList;
     private RecyclerView task_recycler;
     private TaskAdapter adapter;
-    static int studentId = 0;
+    public static int studentId = 0;
     private RequestQueue queue;
     private SearchView svTask;
 

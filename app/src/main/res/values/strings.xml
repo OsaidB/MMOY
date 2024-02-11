@@ -30,6 +30,7 @@
     <string name="time">Time</string>
     <string name="add_task">Add Task</string>
     <string name="welcome_to_your_study_manager">Welcome to your Study Manager</string>
+    <string name="view_your_task">View Your Task</string>
 
     <string-array name="restorans">
         <item>Faculty of Economics and Commerce</item>
