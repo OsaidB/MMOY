@@ -25,13 +25,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import moh.AddTaskActivity;
-import moh.Task;
 import moh.TaskManagerActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button btnSchedule;
-    Button buttonFeature2;
+    Button btnBooks;
     Button button_Tasks;
     private RequestQueue requestQueue;
 
@@ -97,12 +95,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonFeature2.setOnClickListener(new View.OnClickListener() {
+        btnBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start Activity for Feature 2
-//                Intent intent = new Intent(MainActivity.this, Feature2Activity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, finalproject.searchOrAdd.class);
+                intent.putExtra(STD_ID, studentId);
+                startActivity(intent);
             }
         });
 
@@ -129,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         //WHAT
         btnSchedule = findViewById(R.id.btnSchedule);   //1
 //        edtTxt_courseTitle = findViewById(R.id.edtTxt_courseTitle); //2
-        buttonFeature2 = findViewById(R.id.button_feature_2);
+        btnBooks = findViewById(R.id.btnBooks);
         button_Tasks = findViewById(R.id.button_Tasks);
 
     }
@@ -269,7 +267,6 @@ public class MainActivity extends AppCompatActivity {
 //                });
 //        requestQueue.add(request);
 //    }
-
 
 
 }

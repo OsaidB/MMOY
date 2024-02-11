@@ -65,7 +65,13 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         holder.txtV_Room.setText(currCourse.getLocation());
 //        holder.txtV_CourseTitle.setText(currentItem.getCourseTitle());
 
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Present options to edit or delete
+                showEditDeleteOptions(currCourse, view.getContext());
+            }
+        });
 /////////////////////////////////////////////////////////////////////////////////////txtV_CourseCode
         holder.txtV_CourseCode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +129,33 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
 
 
     }
+
+    private void showEditDeleteOptions(Course course, Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(course.getCourseCode());
+
+        // Define the options
+        CharSequence[] options = {"Edit", "Delete"};
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0: // Edit
+                        // Start an activity to edit the course
+//                        Intent editIntent = new Intent(context, EditCourseActivity.class);
+//                        editIntent.putExtra("COURSE_ID", course.getId()); // Assuming Course class has getId method
+//                        context.startActivity(editIntent);
+//                        break;
+//                    case 1: // Delete
+//                        // Confirm deletion
+//                        confirmDelete(course, context);
+                        break;
+                }
+            }
+        });
+        builder.show();
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void navigateToBuilding(String roomNumber, Context context) {
         String coordinates = convertRoomToLocation(roomNumber);

@@ -73,8 +73,8 @@ public class TaskManagerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(TaskManagerActivity.this, AddTaskActivity.class);
-                intent1.putExtra("coursesList",coursesList);
-                intent1.putExtra("studentId",studentId);
+                intent1.putExtra("coursesList", coursesList);
+                intent1.putExtra("studentId", studentId);
                 startActivity(intent1);
             }
         });

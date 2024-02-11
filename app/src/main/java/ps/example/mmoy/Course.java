@@ -39,9 +39,6 @@ public class Course implements Serializable {
         this.faculty = faculty;
         this.roomNum = roomNum;
 
-//        if(){
-//
-//        }
     }
 
 

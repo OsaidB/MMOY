@@ -18,10 +18,10 @@
             android:text="Schedule" />
 
     <Button
-        android:id="@+id/button_feature_2"
+        android:id="@+id/btnBooks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Feature 2" />
+        android:text="Books" />
 
     <Button
         android:id="@+id/button_Tasks"
