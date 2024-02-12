@@ -12,8 +12,8 @@
         android:layout_height="0dp"
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/lblTitle"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,68 +21,73 @@
 
     <TextView
         android:id="@+id/lblTitle"
-        android:layout_width="171dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="85dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/lblCat"
+        app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/lblCat"
-        android:layout_width="172dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="160dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/lblDes"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblTitle" />
+        app:layout_constraintStart_toEndOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/lblDes"
-        android:layout_width="172dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="89dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/lblPrice"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblCat" />
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/lblPrice"
-        android:layout_width="166dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="96dp"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="134dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btnRes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblDes" />
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
         android:id="@+id/btnRes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="90dp"
+        android:layout_marginBottom="89dp"
         android:text="Reserve"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblPrice" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="85dp"
         android:text="Title :"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toStartOf="@+id/lblTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -91,22 +96,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="14dp"
         android:layout_marginBottom="82dp"
         android:text="Category:"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/lblDes"
         app:layout_constraintEnd_toStartOf="@+id/lblCat"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="93dp"
+        android:layout_marginEnd="28dp"
         android:text="Description:"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lblDes"
         app:layout_constraintEnd_toStartOf="@+id/lblDes"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -116,9 +121,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="46dp"
-        android:layout_marginBottom="292dp"
+        android:layout_marginBottom="155dp"
         android:text="Price"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnRes"
         app:layout_constraintEnd_toStartOf="@+id/lblPrice"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblDes" />
 </androidx.constraintlayout.widget.ConstraintLayout>

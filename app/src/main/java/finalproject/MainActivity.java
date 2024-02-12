@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        bookList.clear();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mah_main2);
 

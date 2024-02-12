@@ -33,7 +33,7 @@ public class viewBooks extends AppCompatActivity {
     Button btnSearch;
 
     public static final String STD_ID = "STD_ID";
-    static int studentID;
+    public static int studentID;
 
     private SharedPreferences prefs;            //To Read
     private SharedPreferences.Editor editor;    //To Write
@@ -43,51 +43,51 @@ public class viewBooks extends AppCompatActivity {
     private RequestQueue queue;
     Button btnAddBook;
 
-    public void btnSearch_Click(View view) {
-        EditText edtSearch = findViewById(R.id.edtSearch);
-        String name = edtSearch.getText().toString();
-
-        String url = "http://10.0.2.2:5000/getbook/" + name;
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
-                null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        JSONObject obj = response.getJSONObject(i);
-                        bookList.add(new Book(obj.getString("title"), obj.getString("category"), obj.getString("desc"), Double.parseDouble(obj.getString("price")), R.drawable.diavolo));
-                    } catch (JSONException exception) {
-                        Log.d("Error", exception.toString());
-                    }
-                }
-                RecyclerView recycler = findViewById(R.id.pizza_recycler);
-
-
-                Book[] allBooks = new Book[bookList.size()];
-                for (int i = 0; i < bookList.size(); i++) {
-                    Book currentBook = bookList.get(i);
-                    allBooks[i] = new Book(currentBook.getTitle(), currentBook.getCategory(), currentBook.getDesc(),
-                            currentBook.getPrice(), currentBook.getImageID());
-                }
-
-                // Set up RecyclerView adapter
-                recycler.setLayoutManager(new LinearLayoutManager(viewBooks.this));
-                CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(allBooks);
-                recycler.setAdapter(adapter);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-                Toast.makeText(viewBooks.this, error.toString(),
-                        Toast.LENGTH_SHORT).show();
-                Log.d("Error_json", error.toString());
-            }
-        });
-        queue.add(request);
-
-    }
+//    public void btnSearch_Click(View view) {
+//        EditText edtSearch = findViewById(R.id.edtSearch);
+//        String name = edtSearch.getText().toString();
+//
+////        String url = "http://10.0.2.2:5000/getbook/" + name;
+////        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
+////                null, new Response.Listener<JSONArray>() {
+////            @Override
+////            public void onResponse(JSONArray response) {
+////
+////                for (int i = 0; i < response.length(); i++) {
+////                    try {
+////                        JSONObject obj = response.getJSONObject(i);
+////                        bookList.add(new Book(obj.getString("title"), obj.getString("category"), obj.getString("desc"), Double.parseDouble(obj.getString("price")), R.drawable.diavolo));
+////                    } catch (JSONException exception) {
+////                        Log.d("Error", exception.toString());
+////                    }
+////                }
+////                RecyclerView recycler = findViewById(R.id.pizza_recycler);
+////
+////
+////                Book[] allBooks = new Book[bookList.size()];
+////                for (int i = 0; i < bookList.size(); i++) {
+////                    Book currentBook = bookList.get(i);
+////                    allBooks[i] = new Book(currentBook.getTitle(), currentBook.getCategory(), currentBook.getDesc(),
+////                            currentBook.getPrice(), currentBook.getImageID());
+////                }
+////
+////                // Set up RecyclerView adapter
+////                recycler.setLayoutManager(new LinearLayoutManager(viewBooks.this));
+////                CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(allBooks);
+////                recycler.setAdapter(adapter);
+////            }
+////        }, new Response.ErrorListener() {
+////            @Override
+////            public void onErrorResponse(VolleyError error) {
+////
+////                Toast.makeText(viewBooks.this, error.toString(),
+////                        Toast.LENGTH_SHORT).show();
+////                Log.d("Error_json", error.toString());
+////            }
+////        });
+////        queue.add(request);
+//
+//    }
 
 
 //    public void btnOpen_Click(View view) {
@@ -100,6 +100,7 @@ public class viewBooks extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        bookList.clear();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mah_view_books);
 
@@ -122,7 +123,7 @@ public class viewBooks extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnSearch_Click(view);
+                //btnSearch_Click(view);
             }
         });
         btnAddBook.setOnClickListener(new View.OnClickListener() {
@@ -174,36 +175,24 @@ public class viewBooks extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                // Handle network or server errors
-                if (error.networkResponse != null) {
-                    // Server responded with a status code
-                    int statusCode = error.networkResponse.statusCode;
-                    Toast.makeText(viewBooks.this, "Error: Server responded with status code " + statusCode, Toast.LENGTH_LONG).show();
-                } else {
-                    // Network error (e.g., no internet connection)
-                    Toast.makeText(viewBooks.this, "Network error: " + error.getMessage(), Toast.LENGTH_LONG).show();
-                }
-
-
-
-//                Toast.makeText(viewBooks.this, error.toString(),
-//                        Toast.LENGTH_SHORT).show();
-//                Log.d("Error_json", error.toString());
+                Toast.makeText(viewBooks.this, error.toString(),
+                        Toast.LENGTH_SHORT).show();
+                Log.d("Error_json", error.toString());
             }
         });
         queue.add(request);
 
-        Book[] allBooks = new Book[bookList.size()];
-        for (int i = 0; i < bookList.size(); i++) {
-            Book currentBook = bookList.get(i);
-            allBooks[i] = new Book(currentBook.getTitle(), currentBook.getCategory(), currentBook.getDesc(),
-                    currentBook.getPrice(), currentBook.getImageID());
-        }
-
-        // Set up RecyclerView adapter
-        recycler.setLayoutManager(new LinearLayoutManager(viewBooks.this));
-        CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(allBooks);
-        recycler.setAdapter(adapter);
+//        Book[] allBooks = new Book[bookList.size()];
+//        for (int i = 0; i < bookList.size(); i++) {
+//            Book currentBook = bookList.get(i);
+//            allBooks[i] = new Book(currentBook.getTitle(), currentBook.getCategory(), currentBook.getDesc(),
+//                    currentBook.getPrice(), currentBook.getImageID());
+//        }
+//
+//        // Set up RecyclerView adapter
+//        recycler.setLayoutManager(new LinearLayoutManager(viewBooks.this));
+//        CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(allBooks);
+//        recycler.setAdapter(adapter);
     }
 
     private void onClickedAdd(View view) {
