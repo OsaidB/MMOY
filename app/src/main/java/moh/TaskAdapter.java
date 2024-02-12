@@ -26,6 +26,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     public TaskAdapter(ArrayList<Task> tasksList) {
         this.tasksList = tasksList;
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -60,6 +61,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(TaskAdapter.ViewHolder holder, int position) {
         Task currTask = tasksList.get(position);
+        int taskId = currTask.getTaskID();
+        int courseId = currTask.getCourseID();
         String courseCode = courseIdToCodeMap.get(currTask.getCourseID());
         String taskTitle = courseCode + "\n" + currTask.getTaskType();
         holder.txtTaskTitle.setText(taskTitle);
@@ -70,6 +73,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), TasksDetailsActivity.class);
             intent.putExtra("courseCode", courseCode);
+            intent.putExtra("taskId", taskId);
+            intent.putExtra("courseId", courseId);
             intent.putExtra("taskType", currTask.getTaskType());
             intent.putExtra("description", currTask.getTaskDes());
             intent.putExtra("priority", currTask.getTaskPriority());

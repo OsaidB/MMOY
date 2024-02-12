@@ -1,5 +1,6 @@
 package moh;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,12 +37,14 @@ import ps.example.mmoy.CourseAdapter;
 import ps.example.mmoy.R;
 
 public class TaskManagerActivity extends AppCompatActivity {
+
     public static Map<Integer, String> courseIdToCodeMap = new HashMap<>();
+
     private FloatingActionButton fabAddTask;
     private ArrayList<Course> coursesList;
     private ArrayList<Task> tasksList;
     private RecyclerView task_recycler;
-    private TaskAdapter adapter;
+    public static TaskAdapter adapter;
     public static int studentId = 0;
     private RequestQueue queue;
     private SearchView svTask;
@@ -90,6 +93,12 @@ public class TaskManagerActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchTasksForStudent(studentId);
     }
 
     private void setupViews() {

@@ -1,7 +1,5 @@
 package finalproject;
 
-//import static ps.example.mmoy.MainActivity.prefs;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,18 +23,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ps.example.mmoy.R;
-import ps.example.mmoy.scheduleForm;
 
 public class addBook extends AppCompatActivity {
-    EditText edtId, edtTitle, edtDes, edtCat, edtPrice;
+    EditText edtTitle, edtDes, edtCat, edtPrice;
     Button addBtn;
-
-
+    private RequestQueue queue;
     public static final String STD_ID = "STD_ID";
-    static int studentID;
-
-    private SharedPreferences prefs;            //To Read
-    private SharedPreferences.Editor editor;    //To Write
+    private int studentID;
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor editor;
 
 
     @SuppressLint("MissingInflatedId")
@@ -44,7 +39,6 @@ public class addBook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mah_add_book);
-        edtId = findViewById(R.id.edtId);
         edtTitle = findViewById(R.id.edtTitle);
         edtDes = findViewById(R.id.edtDes);
         edtCat = findViewById(R.id.edtCat);
@@ -54,19 +48,12 @@ public class addBook extends AppCompatActivity {
         setupSharedPrefs();
 
         Intent intent = getIntent();
-
         if (intent != null && intent.hasExtra(STD_ID)) {
-            int studentId = intent.getIntExtra(STD_ID, -1);
-            editor.putInt(STD_ID, studentId);
-            editor.apply();
+            studentID = intent.getIntExtra(STD_ID, -1);
+            editor.putInt(STD_ID, studentID).apply();
+        } else {
+            studentID = prefs.getInt(STD_ID, -1);
         }
-
-        studentID = prefs.getInt(STD_ID, -1); // -1 is the default value if no id is found
-
-
-
-
-
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,146 +62,51 @@ public class addBook extends AppCompatActivity {
             }
         });
     }
-    private void addBook3(String title, String category, String desc, double price, int senderID) {
 
-//        int studentId = prefs.getInt("studentId", -1); // -1 is the default value if no id is found
-
-        String url = "http://10.0.2.2:5000/create";
-
-        RequestQueue queue = Volley.newRequestQueue(addBook.this);
-
-
+    private void addBookToServer(String title, String category, String desc, double price) {
+        String url = "http://10.0.2.2:5000/createBook";
         JSONObject jsonParams = new JSONObject();
-
         try {
             jsonParams.put("title", title);
             jsonParams.put("category", category);
             jsonParams.put("desc", desc);
             jsonParams.put("price", price);
-            jsonParams.put("senderID", senderID);
+            jsonParams.put("senderID", studentID);
 
-
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                    Request.Method.POST,
-                    url,
-                    jsonParams,
-                    new Response.Listener<JSONObject>() {
-
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            String resultMessage = "";
-                            try {
-                                resultMessage = response.getString("result");
-
-
-                                String finalResultMessage = resultMessage;
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        // Display the result message to the user using a Toast
-                                        Toast.makeText(getApplicationContext(), finalResultMessage, Toast.LENGTH_LONG).show();
-                                    }
-                                });
-
-
-                            } catch (JSONException e) {
-                                throw new RuntimeException(e);
-                            }
-
-
-                            Toast.makeText(addBook.this, resultMessage, Toast.LENGTH_SHORT).show();
-                        }
-                    }, new Response.ErrorListener() {
-
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(addBook.this, error.toString(), Toast.LENGTH_SHORT).show();
-                    Log.d("Error_json", error.toString());
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonParams, response -> {
+                try {
+                    String resultMessage = response.getString("result");
+                    Toast.makeText(getApplicationContext(), resultMessage, Toast.LENGTH_LONG).show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Response parsing error.", Toast.LENGTH_SHORT).show();
                 }
+            }, error -> {
+                Toast.makeText(addBook.this, "Request error: " + error.toString(), Toast.LENGTH_SHORT).show();
+                Log.d("Error_json", error.toString());
             });
 
-            queue.add(jsonObjectRequest);
+            Volley.newRequestQueue(this).add(jsonObjectRequest);
         } catch (JSONException e) {
             e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "Error creating JSON params.", Toast.LENGTH_SHORT).show();
-            throw new RuntimeException(e);
+            Toast.makeText(getApplicationContext(), "JSON creation error.", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    private void addBook2(String title, String category, String desc, double price, int senderID) {
-        String url = "http://10.0.2.2:5000/create";
-
-        RequestQueue queue = Volley.newRequestQueue(addBook.this);
-
-
-        JSONObject jsonParams = new JSONObject();
-        try {
-            jsonParams.put("title", title);
-            jsonParams.put("category", category);
-            jsonParams.put("desc", desc);
-            jsonParams.put("price", price);
-            jsonParams.put("senderID", senderID);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        // Create a JsonObjectRequest with POST method
-        JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.POST,
-                url,
-                jsonParams,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        String str = "";
-                        try {
-                            str = response.getString("result");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                        Toast.makeText(addBook.this, str,
-                                Toast.LENGTH_SHORT).show();
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d("VolleyError", error.toString());
-                    }
-                }
-        );
-        // below line is to make
-        // a json object request.
-        queue.add(request);
-
-
     }
 
     public void btnAdd_Click(View view) {
         String bookTitle = edtTitle.getText().toString();
         String bookCat = edtCat.getText().toString();
         String bookDes = edtDes.getText().toString();
+        double bookPrice = Double.parseDouble(edtPrice.getText().toString());
 
-        String bookP = edtPrice.getText().toString();
-        double bookPrice = Double.parseDouble(bookP);
+        addBookToServer(bookTitle, bookCat, bookDes, bookPrice);
 
-        String bookId = edtId.getText().toString();
-        int bookSenderId = Integer.parseInt(bookId);
-
-//        addBook2(bookTitle, bookCat, bookDes, bookPrice, studentID);
-        addBook3(bookTitle, bookCat, bookDes, bookPrice, studentID);
-
-        Intent intent;
-        intent = new Intent(this, viewBooks.class);
+        Intent intent = new Intent(this, viewBooks.class);
         startActivity(intent);
     }
 
-
-    private void setupSharedPrefs() {   //siting SharedPrefs up (making the app ready to Read/Write)
+    private void setupSharedPrefs() {
         prefs = getSharedPreferences("userDetails", MODE_PRIVATE);
-        editor = prefs.edit();  //to Write
+        editor = prefs.edit();
     }
 }

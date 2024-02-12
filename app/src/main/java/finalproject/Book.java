@@ -16,10 +16,7 @@ public class Book {
 
     private static ArrayList<Book> initializeBooks() {
         ArrayList<Book> bookList = new ArrayList<>();
-        bookList.add(new Book("programe", "xsdnk", "cdsncjds", 3.5, R.drawable.diavolo));
-        bookList.add(new Book("programe", "xsdnk", "cdsncjds", 3.5, R.drawable.diavolo)
-        );
-        bookList.add(new Book("programe", "xsdnk", "cdsncjds", 3.5, R.drawable.diavolo));
+      
         bookList.add(new Book("programe", "xsdnk", "cdsncjds", 3.5, R.drawable.diavolo));
         return bookList;
     }

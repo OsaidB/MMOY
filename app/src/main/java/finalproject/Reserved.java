@@ -102,6 +102,7 @@ public class Reserved extends AppCompatActivity {
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        bookList.clear();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mah_reserved);
 
@@ -141,7 +142,7 @@ public class Reserved extends AppCompatActivity {
         RecyclerView recycler = findViewById(R.id.pizza_recycler);
 
 
-        String url = "http://10.0.2.2:5000/books/" + studentID;
+        String url = "http://10.0.2.2:5000/booksB/" + studentID;
 //        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONArray>() {

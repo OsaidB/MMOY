@@ -6,36 +6,50 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 
 import ps.example.mmoy.R;
 
 public class UpdateTaskActivity extends AppCompatActivity {
 
+    private RequestQueue queue;
     private EditText edtTypeTaskUpdate, edtTaskDesUpdate, edtDueDateUpdate, edtDueTimeUpdate;
     private RadioGroup rgPrioritySelectorUpdate;
     private FloatingActionButton fabDateUpdate,fabTimeUpdate;
     private Button btnUpdateTask;
-    private int studentId;
+    private int student_Id;
+    private int task_Id;
+    private int course_Id;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.moh_activity_update_task);
-
+        queue = Volley.newRequestQueue(this);
         setUpViews();
         fillDataFromIntent();
-
 
         fabDateUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +62,19 @@ public class UpdateTaskActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showTimePickerDialog();
+            }
+        });
+
+        btnUpdateTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String taskType = edtTypeTaskUpdate.getText().toString();
+                String description = edtTaskDesUpdate.getText().toString();
+                String priority = getSelectedPriority();
+                String dueDate = edtDueDateUpdate.getText().toString();
+                String dueTime = edtDueTimeUpdate.getText().toString();
+                updateTask(taskType, description, priority, dueDate, dueTime);
+                finish();
             }
         });
 
@@ -71,13 +98,13 @@ public class UpdateTaskActivity extends AppCompatActivity {
         String priority = intent.getStringExtra("priority");
         String dueDate = intent.getStringExtra("dueDate");
         String dueTime = intent.getStringExtra("dueTime");
-        studentId = intent.getIntExtra("studentId", -1);
-
+        student_Id = intent.getIntExtra("studentId", -1);
+        task_Id = intent.getIntExtra("taskId", -1);
+        course_Id = intent.getIntExtra("courseId", -1);
         edtTypeTaskUpdate.setText(taskType);
         edtTaskDesUpdate.setText(description);
         edtDueDateUpdate.setText(dueDate);
         edtDueTimeUpdate.setText(dueTime);
-
         switch (priority) {
             case "High":
                 rgPrioritySelectorUpdate.check(R.id.rbHigh);
@@ -89,6 +116,25 @@ public class UpdateTaskActivity extends AppCompatActivity {
                 rgPrioritySelectorUpdate.check(R.id.rbLow);
                 break;
         }
+    }
+
+    private String getSelectedPriority() {
+        int radioButtonID = rgPrioritySelectorUpdate.getCheckedRadioButtonId();
+        View radioButton = rgPrioritySelectorUpdate.findViewById(radioButtonID);
+        int idx = rgPrioritySelectorUpdate.indexOfChild(radioButton);
+        String priority = "Low";
+        switch (idx) {
+            case 0:
+                priority = "High";
+                break;
+            case 1:
+                priority = "Medium";
+                break;
+            case 2:
+                priority = "Low";
+                break;
+        }
+        return priority;
     }
 
     private void showDatePickerDialog() {
@@ -122,6 +168,45 @@ public class UpdateTaskActivity extends AppCompatActivity {
                     }
                 }, hour, minute, true);
         timePickerDialog.show();
+    }
+
+    private void updateTask(String task_type, String description, String priority, String due_date, String due_time) {
+        String url = "http://10.0.2.2:5000/updateTask/" + task_Id;
+
+        JSONObject jsonParams = new JSONObject();
+        try {
+            jsonParams.put("student_id", student_Id);
+            jsonParams.put("course_id", course_Id);
+            jsonParams.put("task_type", task_type);
+            jsonParams.put("description", description);
+            jsonParams.put("priority", priority);
+            jsonParams.put("due_date", due_date);
+            jsonParams.put("due_time", due_time);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        // Correctly use StringRequest for JSON body
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT, url,
+                response -> Toast.makeText(UpdateTaskActivity.this, "Task updated successfully!", Toast.LENGTH_SHORT).show(),
+                error -> {
+                    // Handle error
+                    String message = "Update failed: " + error.toString();
+                    Toast.makeText(UpdateTaskActivity.this, message, Toast.LENGTH_LONG).show();
+                }) {
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                return jsonParams.toString().getBytes(StandardCharsets.UTF_8);
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+        };
+
+        //RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
     }
 
 

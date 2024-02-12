@@ -1,7 +1,9 @@
 package moh;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -229,6 +231,7 @@ public class AddTaskActivity extends AppCompatActivity {
             jsonParams.put("priority", priority);
             jsonParams.put("due_date", due_date);
             jsonParams.put("due_time", due_time);
+            TaskManagerActivity.adapter.notifyDataSetChanged();
         } catch (JSONException e) {
             e.printStackTrace();
         }
